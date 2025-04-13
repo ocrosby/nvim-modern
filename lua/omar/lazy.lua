@@ -14,7 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- Colorscheme
-    { "folke/tokyonight.nvim", lazy = false, priority = 1000 },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- Set the colorscheme
+            vim.cmd.colorscheme("tokyonight")
+
+            -- Optional: fine-tune highlights
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        end,
+    },
 
     -- LSP
     "neovim/nvim-lspconfig",
