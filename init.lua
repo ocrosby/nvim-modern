@@ -3,5 +3,4 @@
 
 require("omar.core.options")
 require("omar.core.keymaps")
-require("omar.core.colorscheme")
 require("omar.lazy")

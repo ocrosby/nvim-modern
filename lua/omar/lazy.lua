@@ -42,7 +42,25 @@ require("lazy").setup({
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
     -- File explorer
-    "nvim-tree/nvim-tree.lua",
+    {
+        "nvim-tree/nvim-tree.lua",
+        config = function()
+            require("nvim-tree").setup({
+                view = {
+                    width = 30,
+                    side = "left",
+                    --auto_resize = true,
+                },
+                filters = {
+                    dotfiles = false,
+                },
+                git = {
+                    enable = true,
+                },
+            })
+        end
+    },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
 
     -- Telescope
     "nvim-telescope/telescope.nvim",
